@@ -24,3 +24,13 @@ Route::get('/about', function () {
 Route::get('/contacts', function () {
     return view('front.contacts');
 });
+
+Route::name('csm.')->group(function () {
+    Route::prefix('cms')->group(function () {
+        Route::resources([
+            'projects' => 'Cms\Projects\ProjectsController',
+        ]);
+
+
+    });
+});
