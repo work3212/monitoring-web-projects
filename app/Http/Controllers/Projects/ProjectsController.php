@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Cms\Projects;
+namespace App\Http\Controllers\Projects;
 
-use App\Http\Controllers\Cms\Projects\Requests\ProjectStoreRequest;
-use App\Http\Controllers\Cms\Requests\ProjectUpdateRequest;
+use App\Http\Controllers\Projects\Requests\ProjectStoreRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Projects\Requests\ProjectUpdateRequest;
 use App\Models\Project;
 use App\Models\User;
 use App\Services\Projects\ProjectsService;
@@ -28,7 +28,7 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        $data = $this->projectsService->getAll(config('pages.COUNT_PROJECTS_CMS'));
+        $data = $this->projectsService->getPaginateAll(config('pages.COUNT_PROJECTS_CMS'));
         return view('cms.projects.index', compact('data'));
     }
 

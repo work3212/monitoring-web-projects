@@ -17,7 +17,6 @@ class Project extends Model
 {
     protected $fillable = [
         'name',
-        'description',
-        'report_day'
+        'keyword',
     ];
 }

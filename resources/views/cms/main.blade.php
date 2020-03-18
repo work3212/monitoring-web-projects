@@ -23,7 +23,7 @@
     <div class="row">
         <div class="col-md-4 col-lg-3 navbar-container bg-light">
             <nav class="navbar navbar-expand-md navbar-light">
-                <a class="navbar-brand" href="#">Меню CRM</a>
+                <a class="navbar-brand" href="/cms/projects">Меню CRM</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

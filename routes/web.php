@@ -28,9 +28,9 @@ Route::get('/contacts', function () {
 Route::name('csm.')->group(function () {
     Route::prefix('cms')->group(function () {
         Route::resources([
-            'projects' => 'Cms\Projects\ProjectsController',
+            'projects' => 'Projects\ProjectsController',
         ]);
-
-
+        Route::get('/check', 'CheckController@index');
+        Route::get('/check/{id}', 'CheckController@checkOne');
     });
 });

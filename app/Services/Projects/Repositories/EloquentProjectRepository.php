@@ -7,12 +7,20 @@ use App\Models\Project;
 
 class EloquentProjectRepository
 {
-    public function getProjects(int $paginate)
+    public function getProjectsPaginate(int $paginate)
     {
         $columns = ['id', 'name'];
         $result = Project::orderBy('id', 'DESC')
             ->select($columns)
             ->paginate($paginate);
+        return $result;
+    }
+
+    public function getAll()
+    {
+        $columns = ['id', 'name', 'keyword'];
+        $result = Project::select($columns)
+            ->get();
         return $result;
     }
 
@@ -33,14 +41,10 @@ class EloquentProjectRepository
         return $projects->delete();
     }
 
-    public function getAllProjects()
-    {
-        return Project::pluck('name', 'id');
-    }
 
     public function findProject($id)
     {
-        $columns = ['id', 'name', 'description'];
+        $columns = ['id', 'name', 'keyword'];
         $result = Project::findOrFail($id);
         return $result;
     }

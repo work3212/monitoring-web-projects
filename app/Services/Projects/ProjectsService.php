@@ -16,9 +16,14 @@ class ProjectsService
         $this->projectsRepository = $projectRepository;
     }
 
-    public function getAll(int $paginate)
+    public function getPaginateAll(int $paginate)
     {
-        return $this->projectsRepository->getProjects($paginate);
+        return $this->projectsRepository->getProjectsPaginate($paginate);
+    }
+
+    public function getProjectsAll()
+    {
+        return $this->projectsRepository->getAll();
     }
 
     public function saveForm(array $data)
@@ -26,7 +31,7 @@ class ProjectsService
         return $this->projectsRepository->createProject($data);
     }
 
-    public function updateForm(Project $project,array $data)
+    public function updateForm(Project $project, array $data)
     {
         return $this->projectsRepository->updateProject($project, $data);
     }
@@ -34,11 +39,6 @@ class ProjectsService
     public function delForm(int $id)
     {
         return $this->projectsRepository->delProject($id);
-    }
-
-    public function getFormProjects()
-    {
-        return $this->projectsRepository->getAllProjects();
     }
 
     public function getProject($id)

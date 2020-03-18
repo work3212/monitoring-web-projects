@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Cms\Requests;
+namespace App\Http\Controllers\Projects\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Arr;
@@ -25,8 +25,8 @@ class ProjectUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'       => 'required',
-            'report_day' => 'integer|min:1|max:31|required'
+            'name' => 'required',
+            'keyword' => 'required'
         ];
     }
 
@@ -42,11 +42,8 @@ class ProjectUpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required'       => "Заполните название проекта",
-            'report_day.required' => "Заполните дату отчета",
-            'report_day.integer'  => "Поле отчета должно быть числом",
-            'report_day.min'      => "Число отчета должно быть больше 0",
-            'report_day.max'      => "Число отчета должно быть меньше 31",
+            'name.required' => "Заполните название проекта",
+            'keyword.required' => "Заполните ключевое слово",
         ];
     }
 }
