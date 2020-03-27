@@ -19,10 +19,19 @@
                     <td>{{$value->name}}</td>
                     <td>
                         <div class="row">
-                            <a href="{{route('csm.projects.edit',$value->id)}}" class="btn btn-dark">Изменить</a>
-                            {{Form::open(['route'=>['csm.projects.destroy',$value->id],'method' => 'DELETE'])}}
-                            {{Form::submit('Удалить',['class' => 'btn btn-danger ml-1'])}}
-                            {{Form::close()}}
+
+                                <a href="{{route('csm.projects.edit',$value->id)}}" class="btn btn-dark">Изменить</a>
+
+
+                                {{Form::open(['route'=>['csm.projects.destroy',$value->id],'method' => 'DELETE'])}}
+                                {{Form::submit('Удалить',['class' => 'btn btn-danger ml-1'])}}
+                                {{Form::close()}}
+
+
+                                {{Form::open(['route'=>['csm.checkID',$value->id],'method' => 'POST'])}}
+                                {{Form::submit('Проверить',['class' => 'btn btn-secondary ml-1'])}}
+                                {{Form::close()}}
+
                         </div>
                     </td>
                 </tr>

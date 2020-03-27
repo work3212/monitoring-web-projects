@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Services\Projects;
-
 
 use App\Models\Project;
 use App\Services\Projects\Repositories\EloquentProjectRepository;

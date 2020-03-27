@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Services\Check\CheckService;
+use App\Services\Viber\ViberRestApiService;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -33,14 +34,14 @@ class CheckUrlJob implements ShouldQueue
      *
      * @return void
      */
-    public function handle(CheckService $checkService)
+    public function handle(CheckService $checkService, ViberRestApiService $viberRestApiService)
     {
+
         $status = $checkService->checkProjects($this->url, $this->text);
-        if ($status){
-            $code = ' Done';
+        if (!$status) {
+            $viberRestApiService->sendMessageViber('НЕ ПРОШЕЛ ПРОВЕРКУ! '. $this->url);
         }else{
-            $code = ' NO';
+            $viberRestApiService->sendMessageViber($this->url . ' Сайт доступен');
         }
-        Log::info($this->url . $code);
     }
 }

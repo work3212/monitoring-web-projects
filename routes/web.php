@@ -30,7 +30,9 @@ Route::name('csm.')->group(function () {
         Route::resources([
             'projects' => 'Projects\ProjectsController',
         ]);
-        Route::get('/check', 'CheckController@index');
-        Route::get('/check/{id}', 'CheckController@checkOne');
+        Route::post('/check', 'CheckController@index')->name('checkAll');
+        Route::post('/check/{id}', 'CheckController@checkOne')->name('checkID');
     });
 });
+Route::get('/viber', 'ConnectController@connect');
+Route::post('/vb', 'Api\ViberController@getMessage');

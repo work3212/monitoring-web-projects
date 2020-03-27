@@ -25,11 +25,13 @@ class CheckController extends Controller
         foreach ($projects as $project) {
             CheckUrlJob::dispatch($project->name, $project->keyword);
         }
+        return redirect()->route('csm.projects.index');
     }
 
     public function checkOne($id)
     {
         $project = $this->projectsService->getProject($id);
         CheckUrlJob::dispatch($project->name, $project->keyword);
+        return redirect()->route('csm.projects.index');
     }
 }
