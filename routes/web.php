@@ -32,6 +32,7 @@ Route::name('csm.')->group(function () {
         ]);
         Route::post('/check', 'CheckController@index')->name('checkAll');
         Route::post('/check/{id}', 'CheckController@checkOne')->name('checkID');
+        Route::get('/users', 'UsersViberController@index')->name('users');
     });
 });
 Route::get('/viber', 'ConnectController@connect');

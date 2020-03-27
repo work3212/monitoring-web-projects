@@ -38,6 +38,9 @@
                             <a class="nav-link" href="{{route('csm.projects.create')}}">Добавить проект</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="{{route('csm.users')}}">Пользователи Viber</a>
+                        </li>
+                        <li class="nav-item">
                             <form action="{{route('csm.checkAll')}}" method="POST">
                                 <button class="btn btn-secondary" type="submit">Проверить все проекты</button>
                             </form>
